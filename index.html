@@ -26,16 +26,17 @@
 
 </head>
 <body>
-    <button onclick="jsOpenDialog('content.html',300);">Open</button>
+    <button onclick="jsOpendialog('./content.html',300);">Click me</button>
 </body>
 <script>
     
 function jsOpendialog(url,width){
-    let Divp=document.createElement("divp");
+    console.log("jo")
+    let Divp=document.createElement("div");
     Divp.className="Divp";
     Divp.id="Divp";
 
-    let Divh=document.createElement("divh");
+    let Divh=document.createElement("div");
     Divh.className="Divh";
     Divh.id="Divh";
     Divh.style.width=width+"px";
@@ -47,6 +48,7 @@ function jsOpendialog(url,width){
     .then(function(texto){
         document.getElementById("Divh").innerHTML=texto;
     })
+
     document.body.appendChild(Divp);
     Divp.appendChild(Divh);
 }
