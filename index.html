@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .Divp{
+        width:100%;
+        height: 100%;
+        background: #000;
+        opacity: .5;
+        position: absolute;
+        top:0px;
+        left:0px;
+        z-index:30000;
+}
+.Divh{
+    background: #fff;
+    margin:10vh auto 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+</style>
+
+</head>
+<body>
+    <button onclick="jsOpenDialog('content.html',300);">Open</button>
+</body>
+<script>
+    
+function jsOpendialog(url,width){
+    let Divp=document.createElement("divp");
+    Divp.className="Divp";
+    Divp.id="Divp";
+
+    let Divh=document.createElement("divh");
+    Divh.className="Divh";
+    Divh.id="Divh";
+    Divh.style.width=width+"px";
+
+    fetch(url)
+    .then(function(res){
+        return res.text();
+    })
+    .then(function(texto){
+        document.getElementById("Divh").innerHTML=texto;
+    })
+    document.body.appendChild(Divp);
+    Divp.appendChild(Divh);
+}
+
+function jsRemoveDialog(){
+    let Divp= document.getElementById("Divp");
+    document.body.removeChild(Divp)
+}
+</script>
+
+
+
+</html>
